@@ -31,10 +31,25 @@ test
 ## pytest実行
 1. setup.pyに、srcs以下のパスを通す。
    * これがないと、IDE（IntelliJ）上ではパスが通っているように見えるが、pytest実行時にModuleNotFoundErrorになる。
-2. コマンド
+2. 全テスト実行 コマンド
     ```
     pytest -v --capture=no
     ```
+3. 任意のテストのみ実行 コマンド
+    ```
+    pytest -v --capture=no tests/file_transfer/test_file_
+    transfer.py::test_get_ip
+    ```
+4. 任意のテスト名を含むテストのみ実行 コマンド
+    ```
+    pytest -v --capture=no -k "_print_"
+    ```
+5. 任意のmarkerを含むテストのみ実行 コマンド
+```
+# カレントディレクトリにpytest.iniがないと読み込まれなかった。
+cd tests
+pytest -v --capture=no -m run_print
+```
 
 # 参考URL
 * https://httpbin.org/

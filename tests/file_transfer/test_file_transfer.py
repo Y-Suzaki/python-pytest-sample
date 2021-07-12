@@ -1,12 +1,16 @@
+import pytest
 from file_transfer_sub.file_transfer import print_out as print_out_sub
-from file_transfer.file_transfer import print_out, get_ip
+
+from file_transfer.file_transfer import get_ip, print_out
 
 
+@pytest.mark.run_print
 def test_print_1():
     print_out_sub('Hello Pytest World 1.')
     assert True
 
 
+@pytest.mark.run_print
 def test_print_2():
     print_out('Hello Pytest World 2.')
     assert True
